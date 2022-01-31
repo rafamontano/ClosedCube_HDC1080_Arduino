@@ -110,6 +110,10 @@ void ClosedCube_HDC1080::heatUp(uint8_t seconds) {
 	writeRegister(reg);
 }
 
+uint16_t ClosedCube_HDC1080::readRawTemperature() {
+        return readData(HDC1080_TEMPERATURE);
+}
+
 
 double ClosedCube_HDC1080::readT() {
 	return readTemperature();
@@ -118,6 +122,10 @@ double ClosedCube_HDC1080::readT() {
 double ClosedCube_HDC1080::readTemperature() {
 	uint16_t rawT = readData(HDC1080_TEMPERATURE);
 	return (rawT / pow(2, 16)) * 165.0 - 40.0;
+}
+
+uint16_t ClosedCube_HDC1080::readRawHumidity() {
+        return readData(HDC1080_HUMIDITY);
 }
 
 double ClosedCube_HDC1080::readH() {

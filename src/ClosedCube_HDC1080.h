@@ -89,6 +89,9 @@ public:
 	
 	void setResolution(HDC1080_MeasurementResolution humidity, HDC1080_MeasurementResolution temperature);
 
+	uint16_t readRawTemperature();
+    uint16_t readRawHumidity();
+
 	double readTemperature();
 	double readHumidity();
 
